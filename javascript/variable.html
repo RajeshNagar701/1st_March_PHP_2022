@@ -1,0 +1,23 @@
+<html>
+   <body>   
+      <script type = "text/javascript">
+         <!--
+            var abc = "global";      // Declare a global variable
+			document.write(abc);
+            function sayHello( ) 
+			{
+               var xyz = "local";    // Declare a local variable
+               document.write(xyz);
+			   document.write(abc);
+            }
+			 document.write(xyz); // not work
+			
+         //-->
+      </script>     
+	  
+	  
+      <input type = "button" onclick = "sayHello()" value = "Say Hello" >
+  
+	  
+   </body>
+</html>

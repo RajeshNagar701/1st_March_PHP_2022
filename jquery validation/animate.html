@@ -1,0 +1,82 @@
+<!--
+
+$(selector).animate({styles},speed,easing,callback)
+
+
+backgroundPositionX
+backgroundPositionY
+borderWidth
+borderBottomWidth
+borderLeftWidth
+borderRightWidth
+borderTopWidth
+borderSpacing
+margin
+marginBottom
+marginLeft
+marginRight
+marginTop
+opacity
+outlineWidth
+padding
+paddingBottom
+paddingLeft
+paddingRight
+paddingTop
+height
+width
+maxHeight
+maxWidth
+minHeight
+minWidth
+fontSize
+bottom
+left
+right
+top
+letterSpacing
+wordSpacing
+lineHeight
+textIndent
+
+
+Only numeric values can be animated (like "margin:30px"). String values cannot be animated (like "background-color:red"), except for the strings "show", "hide" and "toggle". These values allow hiding and showing the animated element.
+speed	Optional. Specifies the speed of the animation. Default value is 400 milliseconds
+Possible values:
+
+milliseconds (like 100, 1000, 5000, etc)
+"slow"
+"fast"
+
+//$(selector).animate({styles},speed,easing,callback)
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#test").animate({
+	  left: '550px',
+      opacity: '0.5',
+      height: '150px',
+      width: '150px',
+	  fontSize: '3em'
+    }, "slow","linear",function(){
+		alert('hello');
+	});
+  });
+});
+</script> 
+</head>
+<body>
+
+<button>Start Animation</button>
+
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+
+<div id="test" style="background:#98bf21;height:100px;width:100px;position:absolute; color:red">Hello</div>
+
+</body>
+</html>

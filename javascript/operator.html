@@ -1,0 +1,63 @@
+
+<html>
+   <body>
+   
+<!--
+   
+Arithmetic Operators  + - * / % ++ --
+Comparison Operators  == > < <=  >= != 
+Logical (or Relational) Operators      &&  ||   !   // use with if(condition)
+Assignment Operators  = 
+Conditional (or ternary) Operators
+   
+-->
+   
+	<button onclick="arithmetic()">arithmetic</button>
+	<h1>Sum of a & b are : <span id="demo"></span></h1>
+	
+	<button ondblclick="incree_decree()">incree_decree</button>
+	<h1>incree_decree of a & b are : <span id="demo1"></span></h1>
+	
+	
+	<button onmouseenter="logical()">logical</button>
+	<h1>logical  operator : <span id="demo2"></span></h1>
+	
+      <script type = "text/javascript">
+		 function arithmetic()
+		 {
+            var a = 31;
+            var b = 10;
+			var sum=a+b;
+			document.getElementById("demo").innerHTML=sum;
+         }
+		 
+		 function incree_decree()
+		 {
+            var a = 10;
+			a++;
+            var b = 50;
+			b--;
+			document.getElementById("demo1").innerHTML= b;
+         }
+		 
+		 function logical()
+		 {
+			var a=10;
+			var b=20;
+			
+            if(a<b && b>a)
+			{
+			document.getElementById("demo2").innerHTML="both cond true";
+			}
+			else
+			{
+			document.getElementById("demo2").innerHTML="cond false";
+			}
+         }
+      </script>
+      
+	  
+	  
+     
+   </body>
+</html>

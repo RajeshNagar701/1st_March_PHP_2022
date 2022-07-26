@@ -1,0 +1,58 @@
+
+<!--
+Sliding Methods
+With jQuery you can create a sliding effect on elements.
+
+jQuery has the following slide methods:
+
+slideDown()
+slideUp()
+slideToggle()
+
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script> 
+$(document).ready(function(){
+  $("#flip").mouseenter(function(){
+    $("#panel").slideDown(3000);
+  });
+  
+   $("#flip").mouseleave(function(){
+    $("#panel").slideUp(3000);
+  });
+  
+});
+</script>
+<style> 
+#flip {
+  padding: 5px;
+  text-align: center;
+  background-color: #e5eecc;
+  border: solid 1px #c3c3c3;
+}
+
+#panel {
+  padding: 100px;
+  text-align: center;
+  background-color:red;
+  background-size:100% 100%;
+  border: solid 1px #c3c3c3;
+  display: none;
+}
+</style>
+</head>
+<body>
+ 
+<div id="flip">Click to slide the panel down or up</div>
+<div id="panel">Hello world!</div>
+
+</body>
+</html>
