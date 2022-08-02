@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h1>
-                    <a href="index.html">Modernize</a>
+                    <a href="{{url('/dashboard')}}">Modernize</a>
                 </h1>
                 <span>M</span>
             </div>
@@ -75,24 +75,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         Dashboard
                     </a>
                 </li>
-                <li>
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                        <i class="fas fa-laptop"></i>
-                        Components
-                        <i class="fas fa-angle-down fa-pull-right"></i>
-                    </a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="cards.html">Cards</a>
-                        </li>
-                      
-                    </ul>
+                
                 </li>
                
                 <li>
-                    <a href="grids.html">
+                    <a href="{{url('/manage_contact')}}">
                         <i class="fas fa-th"></i>
-                        Grid Layouts
+                        Contact
                     </a>
                 </li>
                

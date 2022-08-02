@@ -13,6 +13,11 @@ use App\Http\Controllers\team_controller;
 use App\Http\Controllers\client_controller;
 use App\Http\Controllers\contact_controller;
 
+
+
+use App\Http\Controllers\admin_controller;
+use App\Http\Controllers\dashboard_controller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,25 +50,19 @@ Route::get('/about',[about_controller::class,'index']);
 Route::get('/service',[service_controller::class,'index']);
 Route::get('/team',[team_controller::class,'index']);
 Route::get('/client',[client_controller::class,'index']);
+
 Route::get('/contact',[contact_controller::class,'index']);
+Route::post('/contact',[contact_controller::class,'store']);
+
+
+Route::get('/signup',[contact_controller::class,'index']);
+Route::post('/signup',[contact_controller::class,'store']);
 
 //================================================================
 
 
+Route::get('/admin',[admin_controller::class,'index']);
+Route::get('/dashboard',[dashboard_controller::class,'index']);
+Route::get('/manage_contact',[contact_controller::class,'allshow']);
+Route::get('/manage_contact/{id}',[contact_controller::class,'destroy']);
 
-
-Route::get('/admin', function () {
-    return view('Admin/index');
-});
-
-Route::get('/dashboard', function () {
-    return view('Admin.dashboard');
-});
-
-Route::get('/add-employee', function () {
-    return view('Admin.add-employee');
-});
-
-Route::get('/manage-employee', function () {
-    return view('Admin.manage-employee');
-});

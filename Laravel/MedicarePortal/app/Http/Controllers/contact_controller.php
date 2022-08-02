@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\contact;
 
 class contact_controller extends Controller
 {
@@ -34,8 +35,22 @@ class contact_controller extends Controller
      */
     public function store(Request $request)
     {
-        //
+		$data=new contact;
+		
+        $data->name=$request->name;
+		$data->email=$request->email;
+		$data->mobile=$request->mobile;
+		$data->message=$request->message;
+		$data->save();
+		return redirect('/contact');
     }
+
+	public function allshow()
+	{	
+		$data=contact::all();
+		return view('Admin.manage_contact',['data_arr'=>$data]);
+	} 
+
 
     /**
      * Display the specified resource.
@@ -79,6 +94,8 @@ class contact_controller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=contact::find($id); //
+		$data->delete();
+		return redirect('/manage_contact');
     }
 }

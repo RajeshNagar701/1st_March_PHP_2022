@@ -21,22 +21,23 @@ Contact
             </div>
             <div class="row">
                <div class="col-md-8 offset-md-2">
-                  <form id="post_form" class="contact_form">
-                     <div class="row">
+                  <form method="post" action="{{url('/contact')}}" id="post_form" class="contact_form">
+                     @csrf
+					 <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contact_control" placeholder=" Name" type="type" name="Name"> 
+                           <input class="contact_control" placeholder=" Name" type="type" name="name"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contact_control" placeholder="Email" type="type" name="Email"> 
+                           <input class="contact_control" placeholder="Email" type="type" name="email"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contact_control" placeholder="Phone Number " type="type" name="Phone Number ">                          
+                           <input class="contact_control" placeholder="Phone Number " type="type" name="mobile">                          
                         </div>
                         <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message </textarea>
+                           <textarea class="textarea" name="message" placeholder="Message" type="type" Message="Name">Message </textarea>
                         </div>
                         <div class="col-md-12">
-                           <button class="send_btn">Send</button>
+                           <button type="submit" class="send_btn">Send</button>
                         </div>
                   </form>
                   </div>
