@@ -122,21 +122,29 @@
                               <li class="nav-item">
                                  <a class="nav-link" href="{{url('/team')}}">team </a>
                               </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="{{url('/client')}}">Clients</a>
-                              </li>
+                             
                               <li class="nav-item">
                                  <a class="nav-link" href="{{url('/contact')}}"> contact us </a>
                               </li>
+							  @if(Session()->has('username'))
+							   <li class="nav-item">
+                                 <a class="nav-link" href="{{url('/profile')}}">My Profile</a>
+                              </li>
+							  @endif
                            </ul>
                         </div>
                      </nav>
                   </div>
                   <div class="col-md-3 col-sm-5 d_none">
                      <ul class="sign">
-                        <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                      @if(Session()->has('username'))
+						<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <li><a class="sign_btn" href="{{url('/logout')}}">Logout</a></li>  
+					  @else						  
+						<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         <li><a class="sign_btn" href="{{url('/signup')}}">sign up now</a></li>
-                     </ul>
+                      @endif
+					 </ul>
                   </div>
                </div>
             </div>

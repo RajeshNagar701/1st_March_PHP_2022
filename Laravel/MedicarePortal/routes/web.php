@@ -12,7 +12,7 @@ use App\Http\Controllers\service_controller;
 use App\Http\Controllers\team_controller;
 use App\Http\Controllers\client_controller;
 use App\Http\Controllers\contact_controller;
-
+use App\Http\Controllers\customer_controller;
 
 
 use App\Http\Controllers\admin_controller;
@@ -55,9 +55,15 @@ Route::get('/contact',[contact_controller::class,'index']);
 Route::post('/contact',[contact_controller::class,'store']);
 
 
-Route::get('/signup',[contact_controller::class,'index']);
-Route::post('/signup',[contact_controller::class,'store']);
+Route::get('/signup',[customer_controller::class,'index']);
+Route::post('/signup',[customer_controller::class,'store']);
 
+Route::get('/login',[customer_controller::class,'login']);
+Route::post('/loginuser',[customer_controller::class,'loginuser']);
+
+Route::get('/profile',[customer_controller::class,'profile']);
+Route::get('/profile/{id}',[customer_controller::class,'edit']);
+Route::post('/profile/{id}',[customer_controller::class,'update']);
 //================================================================
 
 
