@@ -57,11 +57,51 @@ class customer_controller extends Controller
 		$data->lag=implode(",",$request->lag);
 		$data->cid=$request->cid;
 		
-		//img uploading
+		//img single uploading
 		$file=$request->file('img');		
 		$filename=time().'_img.'.$request->file('img')->getClientOriginalExtension();
 		$file->move('upload/customer/',$filename);  // use move for move image in public/images
 		$data->img=$filename; // name store in db
+		
+		/*
+		// multiple uploading also add name="img[]" with multiple
+		
+		validation 
+		
+		'images' => 'required',
+        'images.*' => 'mimes:jpg,png,jpeg,gif,svg'
+		
+		
+		
+		$filesarr = [];
+        if($request->hasfile('img'))
+         {
+            foreach($request->file('img') as $file)
+            {
+                $filename = time().rand(1000,9999).'_img.'.$file->extension();
+                $file->move('upload/customer/',$filename);   
+                $filesarr[] = $filename;  
+            }
+         }
+		$data->img=implode(",",$filesarr); // name store in db
+		
+		//view multiple
+		
+		$string_img=$fetch->img;
+		$arr_img=explode(',',$string_img);
+		@foreach($arr_img as $image)
+       
+            <div class="col-lg-4 col-sm-12 col-md-6 mb-3">
+                <img src="uploads/{{$image}}" alt="{{$picture}}">
+            </div>
+		@endforeach
+		
+		
+		
+		
+		*/
+		
+		
 		
 		$res=$data->save();
 		if($res)
