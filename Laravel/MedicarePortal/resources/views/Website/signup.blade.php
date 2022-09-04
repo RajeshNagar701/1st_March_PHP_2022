@@ -74,7 +74,7 @@ Contact
 							@enderror
                         </div>
                         <div class="col-md-12">
-                           <input class="contact_control"  type="file" name="img[]" multiple/>
+                           <input class="contact_control"  type="file" name="img" multiple/>
 							@error('img')
 								<div class="alert alert-danger">{{ $message }}</div>
 							@enderror

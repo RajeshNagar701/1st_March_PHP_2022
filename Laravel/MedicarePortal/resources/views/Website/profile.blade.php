@@ -52,7 +52,7 @@ Client
 									</tr>
 									<tr>
 										<td>Countrty</td>
-										<td>{{$data->cid}}</td>
+										<td>{{$data->cnm}}</td>
 									</tr>
 								
 								 </table>

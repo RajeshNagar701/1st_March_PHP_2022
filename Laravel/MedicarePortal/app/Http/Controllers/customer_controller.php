@@ -8,6 +8,7 @@ use App\Models\countrie;
 use App\Models\customer;
 use Hash;
 use Session;
+use Mail;
 
 class customer_controller extends Controller
 {
@@ -46,12 +47,12 @@ class customer_controller extends Controller
         'username' => 'required|email|unique:customers',
 		'password' => 'required|min:3|max:12',
 		'cid' => 'required',
-		'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		'img' => 'required',
 		]);
 
         $data=new customer;
-		$data->name=$request->name;
-		$data->username=$request->username;
+		$name=$data->name=$request->name;
+		$email=$data->username=$request->username;
 		$data->password=Hash::make($request->password); // pass make encrypted
 		$data->gen=$request->gen;
 		$data->lag=implode(",",$request->lag);
@@ -100,12 +101,14 @@ class customer_controller extends Controller
 		
 		
 		*/
-		
-		
-		
+	
 		$res=$data->save();
 		if($res)
-		{									// flassh session
+		{
+			//$data=array("name"=>$name);
+			//Mail::to($email)->send(new welcomemail($data));
+			
+									// flassh session
 			return redirect('/signup')->with('success','Register Success');
 		}
 		
@@ -146,7 +149,7 @@ class customer_controller extends Controller
 	
 	public function profile()
     {
-		$data=customer::where('username','=',session()->get('username'))->first();
+		$data=customer::join('countries', 'customers.cid', '=', 'countries.id')->where('customers.username','=',session()->get('username'))->first();
         return view('website.profile',["data"=>$data]);
     }
 	
@@ -211,7 +214,7 @@ class customer_controller extends Controller
 		$res=$data->save();
 		if($res)
 		{
-					
+				
 			return redirect('/profile')->with('success','Update Success');
 		}
     }
